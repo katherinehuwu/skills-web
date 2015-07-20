@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Application Form</title>
+		<link rel="stylesheet" href="../static/css/style.css" >
+	</head>
+	
+	<body>
+		<h2 >Petals Employement Application Form</h2>
+		<span id="intro">Thank you for your interest in Petals Inc. Please take some time and fill out your basic information below. We will get back to you as soon as possible.
+		</span>
+		<br>
+		<br>
+		
+		<form action="/application" method="post">
+			
+			<label>First Name: 
+				<input type="text" name="first_name">
+			</label>
+			<br>
+			
+			<label>Last Name:
+				<input id="emph" type="text" name="last_name">
+			</label>
+			<br>
+
+			<label>Salary Expecation:
+				<input type="text" name="salary">
+			</label>
+			<br>
+
+			<label>Select Desired Position:
+			<select class="yellow" name="position">
+				<option value="software engineer">Software Engineer
+				</option>
+				<option value="QA engineer">QA Engineer</option>
+				<option value="product manager">Product Manager</option>
+			</select>
+			</label>
+			<br>
+
+			<input type="submit">
+
+		</form>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+#emph{
+	font-weight: bold;
+}
+
+span#intro { /*span with the id intro*/
+	border: solid;
+}
+
+
+input, .yellow { /*can select multiple properties*/
+	background-color: yellow;
+}
+
+
+
+/*cascading style sheets*/
+/*id > class> general elements*/
+/*later selectors overide the previous selectors */
+
+/*Q: Why is it the input, .yello can be placed before span#intro? 
+But can switch places with #emph*/
