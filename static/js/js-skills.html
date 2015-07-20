@@ -98,7 +98,8 @@
 
 <script>
   var popUpButton = document.getElementById("popup-alert-button")
-  function alertPop(){
+  function alertPop(evt){
+    evt.preventDefault();
     alert("I just showed you a pop up!");
   }
   popUpButton.addEventListener("click", alertPop)
@@ -158,7 +159,7 @@
   var popinstead = document.getElementById("prevent-form-submission-form")
   popinstead.addEventListener("click", alertPop)
 </script>
-<!-- This still goes to the some-script.Is there anyway to prevent it? -->
+
 <div class="hint">
   <div>
     Did you prevent the form submission by catching the button click?
@@ -217,7 +218,7 @@
 <h2>jQuery</h2>
 <p>You should use jQuery for these parts.</p>
 <p>We didn't include jQuery in this document, though&mdash;so your first task is to include it!</p>
-<!-- <script>add </script> -->
+<script src="http://code.jquery.com/jquery.js"</script>
 
 
 <h3>Finding the Button</h3>
@@ -228,10 +229,10 @@
 <fieldset>
   <input type="button" class="tricky-to-find" value="Pop-Up Please!">
 </fieldset>
-
-<script>
-  // code here for above problem
-</script>
+  <!-- Have trouble finding the button! -->
+// <script>
+   $(".tricky-to-find").on("click", alertPop)
+  </script>
 
 <div class="hint">
   <div>
@@ -257,7 +258,11 @@
 </fieldset>
 
 <script>
-  // put your code here
+  function changeImage(evt){
+      kittenPic.attr("src", "https://pbs.twimg.com/profile_images/555279965194051585/swMjWLLf.jpeg");
+  }
+  var kittenPic = $("#kittenz-rule");
+  kittenPic.on("dblclick", changeImage)
 </script>
 
 <div class="hint">
@@ -290,7 +295,12 @@
 </fieldset>
 
 <script>
-  // put your code here
+  function addImage(evt){
+    setTimeout($("#cute-porcupine-image").fadeIn(2000), 3000);
+
+  }
+  var makePorc =  $("#make-a-porcupine");
+  makePorc.on("click", addImage);
 </script>
 
 <div class="hint">
@@ -312,7 +322,7 @@
 </p>
 
 <fieldset>
-  <form action="/oh-no-do-not-go-here" id="agreeable-form">
+   <form action="/oh-no-do-not-go-here" id="agreeable-form">
     What's your favorite food?
     <input type="text" name="favorite-food" required
            id="favorite-food-input">
@@ -322,7 +332,18 @@
 </fieldset>
 
 <script>
-  // put your code here
+  var agreeText = $("#favorite-food-input").val("");
+
+  function changeText(evt){
+    evt.preventDefault();
+    console.log(agreeText.val());
+
+    $("#agreeable-text").html(agreeText.val());
+  }
+  var theForm = $("#agreeable-form");
+  theForm.on("submit",changeText);
+  
+
 </script>
 
 <div class="hint">
